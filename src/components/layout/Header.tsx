@@ -12,10 +12,10 @@ interface HeaderProps {
 }
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `text-sm sm:text-base transition-colors duration-300 ${
+  `text-sm sm:text-base pb-0.5 border-b border-sage/60 transition-colors duration-300 ${
     isActive
-      ? 'text-espresso font-medium'
-      : 'text-cocoa/80 hover:text-espresso'
+      ? 'text-espresso border-espresso/70'
+      : 'text-cocoa/80 border-transparent hover:text-espresso hover:border-stone/60'
   }`;
 
 export default function Header({ currentLang, onLanguageChange }: HeaderProps) {
@@ -39,10 +39,10 @@ export default function Header({ currentLang, onLanguageChange }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
         <Link
           to="/"
-          className="flex items-center gap-2 font-brand uppercase text-xl sm:text-2xl text-espresso tracking-tight hover:text-cocoa transition-colors tracking-wide"
+          className="flex items-center gap-2 sm:gap-3 font-brand uppercase text-lg sm:text-2xl text-espresso hover:text-cocoa transition-colors tracking-wide"
      
         >
-          <img src={logo} alt="Turistka" className="w-12 h-12" />
+          <img src={logo} alt="Turistka" className="w-8 h-8 sm:w-12 sm:h-12" />
           Turistka
         </Link>
 

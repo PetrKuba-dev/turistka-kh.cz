@@ -24,6 +24,48 @@ const en = {
       ctaMenu: 'Our menu',
       ctaContact: 'Find us',
     },
+    news: {
+      title: 'What\'s new',
+      subtitle: 'Events, updates, and news from Turistka',
+      navLabel: 'News navigation',
+      tabsLabel: 'Choose a news item',
+      prev: 'Previous news item',
+      next: 'Next news item',
+      slideOf: '{{current}} / {{total}}',
+      slideLabel: '{{title}}, item {{current}} of {{total}}',
+      slideAnnouncement: '{{title}}, item {{current}} of {{total}}',
+      swipeHint: 'Swipe',
+      categories: {
+        event: 'Event',
+        news: 'New',
+        operations: 'Operations',
+      },
+      items: {
+        fermentationWorkshop: {
+          validFrom: '12 April 2026',
+          title: 'Fermentation workshop',
+          titleShort: 'Workshop',
+          excerpt:
+            'Come and try making homemade kimchi and pickled vegetables. The workshop is led by a local fermentation enthusiast — places are limited.',
+          cta: 'Register',
+        },
+        brunchMenu: {
+          validFrom: 'from 1 March 2026',
+          title: 'New brunch menu',
+          titleShort: 'Brunch menu',
+          excerpt:
+            'Every Saturday and Sunday from 9 to 12 we serve new brunch plates with homemade pastries, eggs, and filter coffee.',
+          cta: 'Brunch menu',
+        },
+        summerClosure: {
+          validFrom: '14 July – 4 August 2026',
+          title: 'Closed for holiday',
+          titleShort: 'Holiday',
+          excerpt:
+            'From mid-July to early August we\'re taking a well-earned break. We look forward to seeing you again from 5 August.',
+        },
+      },
+    },
     intro: {
       title: 'A place you\'ll want to return to',
       p1: 'Turistka is a family café in the centre of Kutná Hora. We opened it with a simple idea — to offer a place where everyone feels at home.',
@@ -56,6 +98,14 @@ const en = {
     gallery: {
       title: 'The Turistka atmosphere',
       subtitle: 'Calm, light, and the scent of fresh coffee',
+      open: 'Open photo: {{alt}}',
+      close: 'Close gallery',
+      prev: 'Previous photo',
+      next: 'Next photo',
+      slideOf: '{{current}} / {{total}}',
+      slideAnnouncement: 'Photo {{current}} of {{total}}',
+      thumbLabel: 'Photo {{current}} of {{total}}',
+      dialogLabel: 'Photo gallery',
       alt1: 'Café interior with natural light',
       alt2: 'Cappuccino on a wooden table',
       alt3: 'Display of homemade desserts',
@@ -73,6 +123,12 @@ const en = {
       subtitle: 'Find us in the centre of Kutná Hora',
       hoursTitle: 'Opening hours',
       addressTitle: 'Address',
+      hoursSummary: {
+        monday: 'Mon closed',
+        weekdays: 'Tue–Fri 8:00–18:00',
+        weekend: 'Sat–Sun 9:00–17:00',
+      },
+      moreLink: 'Full contact details',
     },
   },
   menu: {
@@ -80,10 +136,16 @@ const en = {
     pageSubtitle: 'Fresh ingredients, homemade preparation, and honest portions',
     categories: {
       coffee: 'Coffee',
-      breakfast: 'Breakfast',
-      brunch: 'Brunch',
+      breakfast: 'Breakfast 9:00 – 14:00',
+      brunch: 'Afternoon menu 14:00 – 18:00',
       desserts: 'Desserts',
       drinks: 'Drinks',
+    },
+    photos: {
+      coffee: 'Cappuccino on a wooden table',
+      breakfast: 'Breakfast at Turistka café',
+      brunch: 'Afternoon menu at Turistka',
+      desserts: 'Display of homemade desserts',
     },
     items: {
       espresso: {
@@ -106,33 +168,58 @@ const en = {
         name: 'Hot chocolate',
         description: 'Rich Belgian chocolate with whipped cream',
       },
-      continental: {
-        name: 'Continental breakfast',
-        description: 'Pastries, butter, jam, cheese, and fresh fruit',
-      },
       scrambledEggs: {
         name: 'Scrambled eggs',
-        description: 'On butter with fresh bread and herbs',
+        description:
+          'Meadow eggs, Balkan cheese, bacon from butcher Nesládka, and our bread',
+        extras: {
+          halloumi: '2 pcs extra halloumi from Bláto farm',
+          sausages: '2 extra Bavarian sausages',
+          egg: 'Extra meadow egg from Horní Kruty',
+          bread: 'Extra slice of our bread',
+        },
       },
-      granolaBowl: {
-        name: 'Granola bowl',
-        description: 'Yoghurt, homemade granola, fruit, and honey',
+      pancakesWithFruit: {
+        name: 'Pancakes with fruit reduction and bacon',
+        description:
+          'Fluffy pancakes with forest fruit reduction, sour cream, and bacon from our butcher',
       },
-      croissant: {
-        name: 'Croissant',
-        description: 'Buttery croissant, freshly baked',
+      autumnSandwich: {
+        name: 'Autumn sandwich',
+        description:
+          'Toast from our oven, pumpkin hummus, balsamic onion, prosciutto from Bohdaneč ham shop, cream cheese, arugula',
       },
-      avocadoToast: {
-        name: 'Avocado toast',
-        description: 'Crispy bread, avocado, egg, and seeds',
+      turkishEggs: {
+        name: 'Turkish eggs',
+        description:
+          '2 eggs at 63° in dill yogurt from Bláto farm, romesco sauce, chili butter, our savory granola, and pita bread',
       },
-      shakshuka: {
-        name: 'Shakshuka',
-        description: 'Eggs in tomato sauce with herbs',
+      lentilBowlWithFalafel: {
+        name: 'Lentil bowl with falafel',
+        description:
+          'Pumpkin hummus, beluga lentil salad, falafel, our fermented vegetables, tahini dressing',
+        extras: {
+          kimchi: 'Extra kimchi',
+        },
       },
-      clubSandwich: {
-        name: 'Club sandwich',
-        description: 'Chicken, bacon, vegetables, and house sauce',
+      weekendEggsInGlass: {
+        name: 'Weekend special – eggs in glass',
+        description:
+          '3 meadow eggs at 63° with sausage from butcher Nesládka, sun-dried tomatoes, hollandaise sauce, and toast from our bread',
+      },
+      soup: {
+        name: 'Soup',
+        description: 'Rich warming soup from the daily menu',
+      },
+      baconJamSandwich: {
+        name: 'Sandwich with our bacon jam and raclette',
+        description:
+          'Sourdough bread from our oven, homemade bacon jam, raclette cheese from Bláto farm, fermented vegetables',
+      },
+      breadWithSpread: {
+        name: 'Slice of bread with homemade spread',
+        description:
+          'A slice of our bread with a spread from the daily menu and microgreens',
       },
       cheesecake: {
         name: 'Cheesecake',
@@ -197,8 +284,10 @@ const en = {
     mapTitle: 'Find us',
     socialTitle: 'Follow us',
     cta: {
-      title: 'Come by for a coffee',
-      subtitle: 'No reservation needed — just drop in. We love surprise visits.',
+      title: 'Reservations',
+      subtitle:
+        'We take reservations for groups and larger tables exclusively via Instagram. For a casual visit, no reservation is needed.',
+      instagramButton: 'Message us on Instagram',
     },
     days: {
       monday: 'Monday',

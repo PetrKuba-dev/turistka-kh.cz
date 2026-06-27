@@ -15,7 +15,7 @@ export default function SectionHeading({
 
   return (
     <div className={`mb-10 md:mb-14 max-w-2xl ${alignClass} ${className}`}>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl text-espresso mb-3">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl text-espresso mb-2">
         {title}
       </h2>
       {subtitle && (

@@ -2,24 +2,24 @@ import type { ContactInfo } from '../types/contact';
 
 export const contactInfo: ContactInfo = {
   address: {
-    street: 'Palackého nám. 12',
+    street: 'Barborská 29/22',
     city: 'Kutná Hora',
     zip: '284 01',
   },
   phone: '+420 327 000 000',
   email: 'info@kavarnaturistka.cz',
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.5!2d15.268!3d49.949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDU2JzU2LjQiTiAxNcKwMTYnMDQuOCJF!5e0!3m2!1scs!2scz!4v1700000000000',
+    'https://www.google.com/maps?q=Turistka+-+Barborská+29/22,+284+01+Kutná+Hora+1-Vnitřní+Město&output=embed',
   socialLinks: [
     {
       id: 'instagram',
       labelKey: 'contact.social.instagram',
-      url: 'https://instagram.com/kavarnaturistka',
+      url: 'https://www.instagram.com/turistka_kutnahora/',
     },
     {
       id: 'facebook',
       labelKey: 'contact.social.facebook',
-      url: 'https://facebook.com/kavarnaturistka',
+      url: 'https://www.facebook.com/turistkakutnahora/',
     },
   ],
   openingHours: [

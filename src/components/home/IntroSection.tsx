@@ -10,9 +10,15 @@ export default function IntroSection() {
     <Section background="cream">
       <Container size="narrow">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl text-espresso text-center mb-6">
-            {t('home.intro.title')}
-          </h2>
+          <div className="w-fit mx-auto">
+            <h2 className="text-3xl md:text-4xl text-espresso text-center w-fit mx-auto">
+              {t('home.intro.title')}
+            </h2>
+            <div
+              className="mt-4 mb-6 mx-4 h-px w-full max-w-xs bg-gradient-to-r from-sage/60 via-sage/30 to-transparent"
+              aria-hidden="true"
+            />
+          </div>
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="text-cocoa/85 text-base md:text-lg leading-relaxed text-center mb-4">

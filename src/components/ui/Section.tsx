@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 interface SectionProps {
   children: ReactNode;
   className?: string;
-  background?: 'cream' | 'sand' | 'white' | 'latte';
+  background?: 'cream' | 'sand' | 'white' | 'latte' | 'sage';
   id?: string;
 }
 
@@ -12,6 +12,7 @@ const bgClasses = {
   sand: 'bg-sand',
   white: 'bg-white',
   latte: 'bg-latte',
+  sage: 'bg-sage/40',
 };
 
 export default function Section({
@@ -21,7 +22,7 @@ export default function Section({
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={`py-16 md:py-24 ${bgClasses[background]} ${className}`}>
+    <section id={id} className={`py-12 md:py-16 ${bgClasses[background]} ${className}`}>
       {children}
     </section>
   );

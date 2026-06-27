@@ -24,6 +24,48 @@ const cs = {
       ctaMenu: 'Naše menu',
       ctaContact: 'Kde nás najdete',
     },
+    news: {
+      title: 'Co je u nás nového',
+      subtitle: 'Akce, novinky a provozní informace z Turistky',
+      navLabel: 'Navigace novinek',
+      tabsLabel: 'Vyberte novinku',
+      prev: 'Předchozí novinka',
+      next: 'Další novinka',
+      slideOf: '{{current}} / {{total}}',
+      slideLabel: '{{title}}, novinka {{current}} z {{total}}',
+      slideAnnouncement: '{{title}}, novinka {{current}} z {{total}}',
+      swipeHint: 'Potáhněte',
+      categories: {
+        event: 'Akce',
+        news: 'Novinka',
+        operations: 'Provoz',
+      },
+      items: {
+        fermentationWorkshop: {
+          validFrom: '12. dubna 2026',
+          title: 'Workshop o fermentaci',
+          titleShort: 'Workshop',
+          excerpt:
+            'Přijďte si vyzkoušet přípravu domácího kimchi a nakládané zeleniny. Workshop vede místní nadšenec do fermentace, kapacita je omezená.',
+          cta: 'Registrovat se',
+        },
+        brunchMenu: {
+          validFrom: 'od 1. března 2026',
+          title: 'Nové brunch menu',
+          titleShort: 'Brunch menu',
+          excerpt:
+            'Každou sobotu a neděli od 9 do 12 servírujeme nové brunch talíře s domácím pečivem, vajíčky a filtrovanou kávou.',
+          cta: 'Brunch menu',
+        },
+        summerClosure: {
+          validFrom: '14. července – 4. srpna 2026',
+          title: 'Zavřeno kvůli dovolené',
+          titleShort: 'Dovolená',
+          excerpt:
+            'Od poloviny července do začátku srpna si dáváme zaslouženou pauzu. Těšíme se na vás zase od 5. srpna.',
+        },
+      },
+    },
     intro: {
       title: 'Místo, kam se rádi vracíte',
       p1: 'Turistka je rodinná kavárna v centru Kutné Hory. Otevřeli jsme ji s jednoduchou myšlenkou — nabídnout místo, kde se člověk cítí jako doma.',
@@ -56,6 +98,14 @@ const cs = {
     gallery: {
       title: 'Atmosféra Turistky',
       subtitle: 'Klid, světlo a vůně čerstvé kávy',
+      open: 'Otevřít fotku: {{alt}}',
+      close: 'Zavřít galerii',
+      prev: 'Předchozí fotka',
+      next: 'Další fotka',
+      slideOf: '{{current}} / {{total}}',
+      slideAnnouncement: 'Fotka {{current}} z {{total}}',
+      thumbLabel: 'Fotka {{current}} z {{total}}',
+      dialogLabel: 'Galerie fotek',
       alt1: 'Interiér kavárny s přirozeným světlem',
       alt2: 'Šálek cappuccina na dřevěném stole',
       alt3: 'Vitrína s domácími dezerty',
@@ -73,6 +123,12 @@ const cs = {
       subtitle: 'Najdete nás v centru Kutné Hory',
       hoursTitle: 'Otevírací doba',
       addressTitle: 'Adresa',
+      hoursSummary: {
+        monday: 'Po zavřeno',
+        weekdays: 'Út–Pá 8:00–18:00',
+        weekend: 'So–Ne 9:00–17:00',
+      },
+      moreLink: 'Více informací',
     },
   },
   menu: {
@@ -80,10 +136,16 @@ const cs = {
     pageSubtitle: 'Čerstvé suroviny, domácí příprava a poctivé porce',
     categories: {
       coffee: 'Káva',
-      breakfast: 'Snídaně',
-      brunch: 'Brunch',
+      breakfast: 'Snídaně 9:00 – 14:00',
+      brunch: 'Odpolední menu 14:00 – 18:00',
       desserts: 'Dezerty',
       drinks: 'Nápoje',
+    },
+    photos: {
+      coffee: 'Cappuccino na dřevěném stole',
+      breakfast: 'Snídaně v kavárně Turistka',
+      brunch: 'Odpolední menu v Turistce',
+      desserts: 'Vitrína s domácími dezerty',
     },
     items: {
       espresso: {
@@ -106,33 +168,58 @@ const cs = {
         name: 'Horká čokoláda',
         description: 'Bohatá belgická čokoláda s šlehačkou',
       },
-      continental: {
-        name: 'Kontinentální snídaně',
-        description: 'Pečivo, máslo, džem, sýr a čerstvé ovoce',
-      },
       scrambledEggs: {
-        name: 'Míchaná vejce',
-        description: 'Na másle s čerstvým chlebem a bylinkami',
+        name: 'Míchaná vajíčka',
+        description:
+          'Vejce z louky, balkán, slanina od řezníka Nesládka a náš chléb',
+        extras: {
+          halloumi: '2 ks halloumi z farmy Bláto navíc',
+          sausages: '2 bavorské klobásky navíc',
+          egg: 'Vejce z louky Horní Kruty navíc',
+          bread: 'Krajíc našeho chleba navíc',
+        },
       },
-      granolaBowl: {
-        name: 'Granola miska',
-        description: 'Jogurt, domácí granola, ovoce a med',
+      pancakesWithFruit: {
+        name: 'Lívance s ovocným rozvarem a slaninou',
+        description:
+          'Nadýchané lívance s rozvarem z lesního ovoce, zakysanou smetanou a slaninou od našeho řezníka',
       },
-      croissant: {
-        name: 'Croissant',
-        description: 'Máslový croissant, čerstvě upečený',
+      autumnSandwich: {
+        name: 'Podzimní sendvič',
+        description:
+          'Toust z naší pece, dýňový hummus, balsamikovová cibulka, pršut ze šunkárny Bohdaneč, cream cheese, rukola',
       },
-      avocadoToast: {
-        name: 'Avokádový toast',
-        description: 'Křupavý chléb, avokádo, vejce a semínka',
+      turkishEggs: {
+        name: 'Turecká vejce',
+        description:
+          '2 vejce 63° v koprovém jogurtu z farmy Bláto, romesco omáčka, chilli máslo, naše slaná granola a pita chléb',
       },
-      shakshuka: {
-        name: 'Shakshuka',
-        description: 'Vejce v rajčatové omáčce s bylinkami',
+      lentilBowlWithFalafel: {
+        name: 'Čočkomíška s falafelem',
+        description:
+          'Hummus z dýně, beluga salátek, falafel, naše fermentovaná zelenina, tahini zálivka',
+        extras: {
+          kimchi: 'Kimchi navíc',
+        },
       },
-      clubSandwich: {
-        name: 'Club sendvič',
-        description: 'Kuře, slanina, zelenina a domácí omáčka',
+      weekendEggsInGlass: {
+        name: 'Víkendová specialita – vejce do skla',
+        description:
+          '3 vejce 63° z louky s klobáskou od řezníka Nesládka, sušenými rajčaty, holandskou omáčkou a topinkou z našeho chleba',
+      },
+      soup: {
+        name: 'Polévka',
+        description: 'Bohatá hřejivá polévka dle denní nabídky',
+      },
+      baconJamSandwich: {
+        name: 'Sendvič s naší slaninádou a raclette',
+        description:
+          'Kváskový chléb z naší pece, domácí slanináda, raclette sýr z farmy Bláto, fermentovaná zelenina',
+      },
+      breadWithSpread: {
+        name: 'Krajíc chleba s domácí pomazánkou',
+        description:
+          'Krajíc našeho chleba s pomazánkou dle denní nabídky a mikrobylinkami',
       },
       cheesecake: {
         name: 'Cheesecake',
@@ -197,8 +284,10 @@ const cs = {
     mapTitle: 'Kde nás najdete',
     socialTitle: 'Sledujte nás',
     cta: {
-      title: 'Přijďte se zastavit na kávu',
-      subtitle: 'Bez rezervace, prostě přijďte. Máme rádi nečekané návštěvy.',
+      title: 'Rezervace',
+      subtitle:
+        'Skupiny a větší stoly rezervujeme výhradně přes Instagram. Na běžnou návštěvu rezervaci nepotřebujete.',
+      instagramButton: 'Napsat na Instagram',
     },
     days: {
       monday: 'Pondělí',

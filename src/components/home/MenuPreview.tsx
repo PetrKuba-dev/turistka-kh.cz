@@ -39,7 +39,7 @@ export default function MenuPreview() {
           ))}
         </div>
         <FadeIn className="text-center">
-          <Button to="/menu" variant="secondary">
+          <Button to="/menu" variant="accent">
             {t('common.seeAll')}
           </Button>
         </FadeIn>

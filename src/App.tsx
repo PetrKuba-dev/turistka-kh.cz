@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { motion, useAnimation } from 'framer-motion';
 import './index.css';
 import './i18n';
 
@@ -8,41 +9,41 @@ import Layout from './Layout';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
-import HomePage from './pages/Home';
-import MenuPage from './pages/Menu';
-import AboutPage from './pages/About';
-import ContactPage from './pages/Contact';
+const langFade = { duration: 0.15 };
 
 export default function App() {
-  const location = useLocation();
   const { i18n } = useTranslation();
   const [currentLang, setCurrentLang] = useState(i18n.language);
+  const controls = useAnimation();
 
   const handleLanguageChange = useCallback(
-    (lang: string) => {
+    async (lang: string) => {
+      if (lang === currentLang) return;
+
+      await controls.start({ opacity: 0, transition: langFade });
       i18n.changeLanguage(lang);
       setCurrentLang(lang);
+      await controls.start({ opacity: 1, transition: langFade });
     },
-    [i18n],
+    [i18n, currentLang, controls],
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-cream">
+    <motion.div
+      animate={controls}
+      initial={{ opacity: 1 }}
+      className="min-h-screen flex flex-col bg-cream"
+    >
       <Header
         currentLang={currentLang}
         onLanguageChange={handleLanguageChange}
       />
       <main className="flex-1">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/menu" element={<MenuPage />} />
-            <Route path="/o-nas" element={<AboutPage />} />
-            <Route path="/kontakt" element={<ContactPage />} />
-          </Route>
+        <Routes>
+          <Route path="*" element={<Layout />} />
         </Routes>
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

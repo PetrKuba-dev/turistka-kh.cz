@@ -1,4 +1,7 @@
-import type { MenuCategory } from '../types/menu';
+import type { MenuCategory, MenuCategoryId, MenuImage } from '../types/menu';
+import image4 from '../../public/img/gallery/4.jpg';
+import image9 from '../../public/img/gallery/9.jpg';
+import imageBrunch from '../../public/img/news/brunch.jpg';
 
 export const menuCategories: MenuCategory[] = [
   {
@@ -42,52 +45,92 @@ export const menuCategories: MenuCategory[] = [
     titleKey: 'menu.categories.breakfast',
     items: [
       {
-        id: 'continental',
-        nameKey: 'menu.items.continental.name',
-        descriptionKey: 'menu.items.continental.description',
-        price: 145,
-      },
-      {
         id: 'scrambled-eggs',
         nameKey: 'menu.items.scrambledEggs.name',
         descriptionKey: 'menu.items.scrambledEggs.description',
-        price: 135,
+        price: 140,
+        extras: [
+          {
+            nameKey: 'menu.items.scrambledEggs.extras.halloumi',
+            price: 25,
+          },
+          {
+            nameKey: 'menu.items.scrambledEggs.extras.sausages',
+            price: 30,
+          },
+          {
+            nameKey: 'menu.items.scrambledEggs.extras.egg',
+            price: 15,
+          },
+          {
+            nameKey: 'menu.items.scrambledEggs.extras.bread',
+            price: 10,
+          },
+        ],
       },
       {
-        id: 'granola-bowl',
-        nameKey: 'menu.items.granolaBowl.name',
-        descriptionKey: 'menu.items.granolaBowl.description',
-        price: 125,
+        id: 'pancakes-with-fruit',
+        nameKey: 'menu.items.pancakesWithFruit.name',
+        descriptionKey: 'menu.items.pancakesWithFruit.description',
+        price: 175,
       },
       {
-        id: 'croissant',
-        nameKey: 'menu.items.croissant.name',
-        descriptionKey: 'menu.items.croissant.description',
-        price: 55,
+        id: 'autumn-sandwich',
+        nameKey: 'menu.items.autumnSandwich.name',
+        descriptionKey: 'menu.items.autumnSandwich.description',
+        price: 180,
+      },
+      {
+        id: 'turkish-eggs',
+        nameKey: 'menu.items.turkishEggs.name',
+        descriptionKey: 'menu.items.turkishEggs.description',
+        price: 170,
+      },
+      {
+        id: 'lentil-bowl-with-falafel',
+        nameKey: 'menu.items.lentilBowlWithFalafel.name',
+        descriptionKey: 'menu.items.lentilBowlWithFalafel.description',
+        price: 175,
+        extras: [
+          {
+            nameKey: 'menu.items.lentilBowlWithFalafel.extras.kimchi',
+            price: 20,
+          },
+        ],
+      },
+      {
+        id: 'weekend-eggs-in-glass',
+        nameKey: 'menu.items.weekendEggsInGlass.name',
+        descriptionKey: 'menu.items.weekendEggsInGlass.description',
+        price: 190,
       },
     ],
   },
   {
     id: 'brunch',
     titleKey: 'menu.categories.brunch',
+    image: {
+      src: imageBrunch,
+      altKey: 'menu.photos.brunch',
+    },
     items: [
       {
-        id: 'avocado-toast',
-        nameKey: 'menu.items.avocadoToast.name',
-        descriptionKey: 'menu.items.avocadoToast.description',
-        price: 165,
+        id: 'soup',
+        nameKey: 'menu.items.soup.name',
+        descriptionKey: 'menu.items.soup.description',
+        price: 75,
       },
       {
-        id: 'shakshuka',
-        nameKey: 'menu.items.shakshuka.name',
-        descriptionKey: 'menu.items.shakshuka.description',
-        price: 175,
+        id: 'bacon-jam-sandwich',
+        nameKey: 'menu.items.baconJamSandwich.name',
+        descriptionKey: 'menu.items.baconJamSandwich.description',
+        price: 130,
       },
       {
-        id: 'club-sandwich',
-        nameKey: 'menu.items.clubSandwich.name',
-        descriptionKey: 'menu.items.clubSandwich.description',
-        price: 155,
+        id: 'bread-with-spread',
+        nameKey: 'menu.items.breadWithSpread.name',
+        descriptionKey: 'menu.items.breadWithSpread.description',
+        price: 70,
       },
     ],
   },
@@ -153,13 +196,18 @@ export const menuCategories: MenuCategory[] = [
   },
 ];
 
+export const menuPhotoBreaks: Partial<Record<MenuCategoryId, MenuImage>> = {
+  coffee: { src: image4, altKey: 'menu.photos.coffee' },
+  desserts: { src: image9, altKey: 'menu.photos.desserts' },
+};
+
 export const menuPreviewIds = [
   'cappuccino',
-  'croissant',
-  'avocado-toast',
+  'scrambled-eggs',
+  'pancakes-with-fruit',
   'cheesecake',
   'flat-white',
-  'apple-strudel',
+  'bacon-jam-sandwich',
 ];
 
 export function getMenuItemById(id: string) {

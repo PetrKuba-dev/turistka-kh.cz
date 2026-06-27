@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost';
 
 interface ButtonProps {
   children: ReactNode;
@@ -17,6 +17,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-cocoa text-cream hover:bg-espresso border border-cocoa hover:border-espresso',
   secondary:
     'bg-transparent text-cocoa border border-cocoa hover:bg-cocoa hover:text-cream',
+  accent:
+    'bg-transparent text-sage border border-sage hover:bg-sage hover:text-cream hover:border-sage',
   ghost: 'bg-transparent text-cocoa hover:text-espresso underline-offset-4 hover:underline',
 };
 

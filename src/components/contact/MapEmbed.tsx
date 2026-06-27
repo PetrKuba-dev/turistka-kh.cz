@@ -12,7 +12,7 @@ export default function MapEmbed({ className = '' }: MapEmbedProps) {
       <iframe
         title="Mapa — Kavárna Turistka, Kutná Hora"
         src={contactInfo.mapEmbedUrl}
-        className="w-full h-full min-h-[250px] border-0"
+        className="w-full h-full min-h-[320px] border-0"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen

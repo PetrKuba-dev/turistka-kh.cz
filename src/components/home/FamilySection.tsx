@@ -11,7 +11,7 @@ export default function FamilySection() {
       <Container size="narrow">
         <FadeIn>
           <blockquote className="text-center">
-            <p className="font-serif text-2xl md:text-3xl text-espresso leading-relaxed italic mb-6">
+            <p className="font-serif text-2xl md:text-3xl text-sage/90 leading-relaxed italic mb-6">
               &ldquo;{t('home.family.quote')}&rdquo;
             </p>
             <footer className="text-cocoa/70 text-sm tracking-wide uppercase">

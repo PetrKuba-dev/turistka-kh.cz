@@ -5,7 +5,7 @@ import App from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/turistka-kh.cz">
       <App />
     </BrowserRouter>
   </StrictMode>,
