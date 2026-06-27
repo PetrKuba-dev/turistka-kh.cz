@@ -1,12 +1,26 @@
-import type { MenuCategory, MenuCategoryId, MenuImage } from '../types/menu';
+import type {
+  MenuCategory,
+  MenuCategoryId,
+  MenuImage,
+  MenuLayoutVariant,
+} from '../types/menu';
 import image4 from '../../public/img/gallery/4.jpg';
 import image9 from '../../public/img/gallery/9.jpg';
 import imageBrunch from '../../public/img/news/brunch.jpg';
+
+export function getMenuLayout(categoryId: MenuCategoryId): MenuLayoutVariant {
+  return categoryId === 'coffee' || categoryId === 'drinks'
+    ? 'compact'
+    : 'spacious';
+}
 
 export const menuCategories: MenuCategory[] = [
   {
     id: 'coffee',
     titleKey: 'menu.categories.coffee',
+    introKey: 'menu.categories.coffeeIntro',
+    layout: 'compact',
+    altMilkNoteKey: 'menu.altMilk.coffee',
     items: [
       {
         id: 'espresso',
@@ -19,12 +33,14 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.cappuccino.name',
         descriptionKey: 'menu.items.cappuccino.description',
         price: 75,
+        allergens: ['milk'],
       },
       {
         id: 'flat-white',
         nameKey: 'menu.items.flatWhite.name',
         descriptionKey: 'menu.items.flatWhite.description',
         price: 80,
+        allergens: ['milk'],
       },
       {
         id: 'filter-coffee',
@@ -37,18 +53,22 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.hotChocolate.name',
         descriptionKey: 'menu.items.hotChocolate.description',
         price: 70,
+        allergens: ['milk'],
       },
     ],
   },
   {
     id: 'breakfast',
     titleKey: 'menu.categories.breakfast',
+    introKey: 'menu.categories.breakfastIntro',
+    layout: 'spacious',
     items: [
       {
         id: 'scrambled-eggs',
         nameKey: 'menu.items.scrambledEggs.name',
         descriptionKey: 'menu.items.scrambledEggs.description',
         price: 140,
+        allergens: ['eggs', 'gluten', 'milk'],
         extras: [
           {
             nameKey: 'menu.items.scrambledEggs.extras.halloumi',
@@ -73,24 +93,29 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.pancakesWithFruit.name',
         descriptionKey: 'menu.items.pancakesWithFruit.description',
         price: 175,
+        allergens: ['eggs', 'gluten', 'milk'],
       },
       {
         id: 'autumn-sandwich',
         nameKey: 'menu.items.autumnSandwich.name',
         descriptionKey: 'menu.items.autumnSandwich.description',
         price: 180,
+        badge: 'seasonal',
+        allergens: ['gluten', 'milk'],
       },
       {
         id: 'turkish-eggs',
         nameKey: 'menu.items.turkishEggs.name',
         descriptionKey: 'menu.items.turkishEggs.description',
         price: 170,
+        allergens: ['eggs', 'gluten', 'milk', 'nuts'],
       },
       {
         id: 'lentil-bowl-with-falafel',
         nameKey: 'menu.items.lentilBowlWithFalafel.name',
         descriptionKey: 'menu.items.lentilBowlWithFalafel.description',
         price: 175,
+        allergens: ['gluten', 'sesame', 'soy'],
         extras: [
           {
             nameKey: 'menu.items.lentilBowlWithFalafel.extras.kimchi',
@@ -103,12 +128,16 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.weekendEggsInGlass.name',
         descriptionKey: 'menu.items.weekendEggsInGlass.description',
         price: 190,
+        badge: 'weekend',
+        allergens: ['eggs', 'gluten', 'mustard', 'milk'],
       },
     ],
   },
   {
     id: 'brunch',
     titleKey: 'menu.categories.brunch',
+    introKey: 'menu.categories.brunchIntro',
+    layout: 'spacious',
     image: {
       src: imageBrunch,
       altKey: 'menu.photos.brunch',
@@ -125,36 +154,43 @@ export const menuCategories: MenuCategory[] = [
         nameKey: 'menu.items.baconJamSandwich.name',
         descriptionKey: 'menu.items.baconJamSandwich.description',
         price: 130,
+        allergens: ['gluten', 'milk'],
       },
       {
         id: 'bread-with-spread',
         nameKey: 'menu.items.breadWithSpread.name',
         descriptionKey: 'menu.items.breadWithSpread.description',
         price: 70,
+        allergens: ['gluten'],
       },
     ],
   },
   {
     id: 'desserts',
     titleKey: 'menu.categories.desserts',
+    introKey: 'menu.categories.dessertsIntro',
+    layout: 'spacious',
     items: [
       {
         id: 'cheesecake',
         nameKey: 'menu.items.cheesecake.name',
         descriptionKey: 'menu.items.cheesecake.description',
         price: 95,
+        allergens: ['milk', 'gluten', 'eggs'],
       },
       {
         id: 'apple-strudel',
         nameKey: 'menu.items.appleStrudel.name',
         descriptionKey: 'menu.items.appleStrudel.description',
         price: 85,
+        allergens: ['gluten', 'eggs', 'milk'],
       },
       {
         id: 'chocolate-cake',
         nameKey: 'menu.items.chocolateCake.name',
         descriptionKey: 'menu.items.chocolateCake.description',
         price: 90,
+        allergens: ['gluten', 'eggs', 'milk'],
       },
       {
         id: 'daily-cake',
@@ -167,6 +203,8 @@ export const menuCategories: MenuCategory[] = [
   {
     id: 'drinks',
     titleKey: 'menu.categories.drinks',
+    introKey: 'menu.categories.drinksIntro',
+    layout: 'compact',
     items: [
       {
         id: 'fresh-juice',

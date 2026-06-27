@@ -134,12 +134,50 @@ const en = {
   menu: {
     pageTitle: 'Our menu',
     pageSubtitle: 'Fresh ingredients, homemade preparation, and honest portions',
+    nav: {
+      label: 'Menu navigation',
+    },
+    badges: {
+      weekend: 'Weekend special',
+      seasonal: 'Seasonal',
+    },
+    altMilk: {
+      coffee: 'Oat or almond milk on request +15 CZK',
+    },
+    allergens: {
+      label: 'Allergens',
+      disclaimer:
+        'Allergen information is indicative. For daily specials and up-to-date details, please ask at the counter.',
+      gluten: 'Gluten',
+      crustaceans: 'Crustaceans',
+      eggs: 'Eggs',
+      fish: 'Fish',
+      peanuts: 'Peanuts',
+      soy: 'Soy',
+      milk: 'Milk',
+      nuts: 'Tree nuts',
+      celery: 'Celery',
+      mustard: 'Mustard',
+      sesame: 'Sesame',
+      sulphites: 'Sulphur dioxide and sulphites',
+      lupin: 'Lupin',
+      molluscs: 'Molluscs',
+    },
     categories: {
       coffee: 'Coffee',
-      breakfast: 'Breakfast 9:00 – 14:00',
-      brunch: 'Afternoon menu 14:00 – 18:00',
+      coffeeIntro:
+        'Espresso, filter coffee, and milk drinks from specialty beans.',
+      breakfast: 'Breakfast',
+      breakfastIntro:
+        'We serve savoury breakfasts every day until 14:00. Everything is made from fresh ingredients from local suppliers.',
+      brunch: 'Afternoon menu',
+      brunchIntro:
+        'Afternoon menu from 14:00. Soup and spread change daily — ask at the counter.',
       desserts: 'Desserts',
+      dessertsIntro:
+        'We bake everything ourselves. The cake of the day is in the display at the counter.',
       drinks: 'Drinks',
+      drinksIntro: 'Homemade lemonades, fresh juices, and loose-leaf teas.',
     },
     photos: {
       coffee: 'Cappuccino on a wooden table',

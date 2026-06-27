@@ -21,7 +21,7 @@ export default function NewsTextPanel({ item, id }: NewsTextPanelProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={TEXT_TRANSITION}
-          className="h-full flex flex-col justify-between lg:pt-4"
+          className="h-full flex flex-col justify-between pt-2 lg:pt-4"
         >
           <div>
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-4 uppercase tracking-widest text-sage/80">

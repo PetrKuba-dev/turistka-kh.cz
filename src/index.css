@@ -30,6 +30,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: clip;
   font-family: var(--font-sans);
   color: var(--color-espresso);
   background-color: var(--color-cream);
@@ -40,7 +41,6 @@ body {
 #root {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 h1,

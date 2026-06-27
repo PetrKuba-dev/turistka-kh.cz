@@ -6,7 +6,7 @@ export default function MenuPageHeader() {
   const { t } = useTranslation();
 
   return (
-    <section className="border-b border-stone/50 bg-cream">
+    <section className="bg-cream">
       <Container size="narrow" className="py-10 md:py-12">
         <FadeIn>
           <div className="max-w-2xl">

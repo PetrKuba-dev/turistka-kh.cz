@@ -134,12 +134,50 @@ const cs = {
   menu: {
     pageTitle: 'Naše menu',
     pageSubtitle: 'Čerstvé suroviny, domácí příprava a poctivé porce',
+    nav: {
+      label: 'Navigace menu',
+    },
+    badges: {
+      weekend: 'Víkendová specialita',
+      seasonal: 'Sezónní',
+    },
+    altMilk: {
+      coffee: 'Ovesné nebo mandlové mléko na přání +15 Kč',
+    },
+    allergens: {
+      label: 'Alergeny',
+      disclaimer:
+        'Údaje o alergenech jsou orientační. U položek denní nabídky a aktuální informace vám sdělíme na místě.',
+      gluten: 'Lepek',
+      crustaceans: 'Korýši',
+      eggs: 'Vejce',
+      fish: 'Ryby',
+      peanuts: 'Arašídy',
+      soy: 'Sója',
+      milk: 'Mléko',
+      nuts: 'Skořápkové plody',
+      celery: 'Celer',
+      mustard: 'Hořčice',
+      sesame: 'Sezam',
+      sulphites: 'Oxid siřičitý a siřičitany',
+      lupin: 'Vlčí bob',
+      molluscs: 'Měkkýši',
+    },
     categories: {
       coffee: 'Káva',
-      breakfast: 'Snídaně 9:00 – 14:00',
-      brunch: 'Odpolední menu 14:00 – 18:00',
+      coffeeIntro:
+        'Espresso, filtrovaná i mléčné nápoje z výběrových zrn.',
+      breakfast: 'Snídaně',
+      breakfastIntro:
+        'Slané snídaně podáváme každý den do 14:00. Všechno připravujeme z čerstvých surovin od místních dodavatelů.',
+      brunch: 'Odpolední menu',
+      brunchIntro:
+        'Odpolední menu od 14:00. Polévka a pomazánka se mění dle denní nabídky — zeptejte se u pultu.',
       desserts: 'Dezerty',
+      dessertsIntro:
+        'Pečeme sami. Dort dne najdete ve vitríně u pultu.',
       drinks: 'Nápoje',
+      drinksIntro: 'Domácí limonády, čerstvé džusy a sypané čaje.',
     },
     photos: {
       coffee: 'Cappuccino na dřevěném stole',
