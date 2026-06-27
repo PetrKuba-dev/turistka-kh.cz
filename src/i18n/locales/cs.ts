@@ -295,17 +295,22 @@ const cs = {
   },
   about: {
     pageTitle: 'O nás',
-    pageSubtitle: 'Rodinný příběh kavárny v centru Kutné Hory',
+    pageSubtitle: 'Rodinná kavárna na Barborské v Kutné Hoře',
     story: {
       title: 'Jak to začalo',
-      p1: 'Turistku jsme otevřeli jako rodina — s touhou vytvořit místo, kde se lidé zastaví, odpočinou si a cítí se dobře. Nechtěli jsme další rychlou kavárnu, ale prostor s duší.',
-      p2: 'Název nám přirozeně sedí: Kutná Hora žije z turistů i místních, a my chceme být zastávkou pro obojí. Místo, kde si dáte kávu po procházce historickým centrem, nebo kde se scházíte s přáteli každý týden.',
-      p3: 'Všechno pečeme a vaříme sami. Menu se mění podle sezóny, ale vždy najdete něco sladkého, něco slaného a dobrou kávu.',
+      p1: 'Turistku provozujeme jako rodina na Barborské 29/22. Chtěli jsme místo, kde se dá po procházce městem opravdu sednout — ne jen vyzvednout kávu u okénka.',
+      p2: 'Název není náhoda. Kutná Hora žije turisty i místními a my jsme zastávka pro obojí — jednorázová návštěva i pravidelná káva ve stejný den v týdnu.',
+      p3: 'Dorty a slané pečivo děláme sami. Menu se mění podle sezóny a toho, co zrovna stihneme — v vitríně ale vždycky najdete něco sladkého a poctivou kávu.',
     },
     atmosphere: {
-      title: 'Atmosféra',
-      p1: 'Interiér je jednoduchý a světlý — dřevo, přírodní tóny a spousta světla. Ráno tu panuje klid, odpoledne přicházejí hosté po výletech a večer se kavárna promění v útulné místo na posezení.',
-      p2: 'Jsme v centru Kutné Hory, kousek od hlavních památek. Ideální zastávka na cestě mezi katedrálou a dalšími zajímavostmi města.',
+      title: 'Jak to u nás vypadá',
+      p1: 'Světlý prostor, dřevo, přírodní barvy. Ráno je klid, odpoledne přicházejí hosté z prohlídky a večer tu zůstává pár stolů na pomalé posezení.',
+      p2: 'Jsme pár kroků od hlavních památek — snadná zastávka mezi katedrálou a zbytkem centra, i když město neznáte.',
+    },
+    quote: {
+      heading: 'Co nás vede',
+      text: 'Kavárnu jsme otevřeli pro lidi, ne pro trendy. Ať jste místní nebo turista na první návštěvě — u nás byste se měli cítit vítáni.',
+      author: 'Rodina Turistka',
     },
     images: {
       alt1: 'Rodina za pultem kavárny',

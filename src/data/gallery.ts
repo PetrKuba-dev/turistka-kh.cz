@@ -14,8 +14,3 @@ export const galleryImages: GalleryImage[] = [
   { id: '5', altKey: 'home.gallery.alt5', span: 'normal', src: image5 },
   { id: '6', altKey: 'home.gallery.alt6', span: 'wide', src: image6 },
 ];
-
-export const aboutImages = [
-  { id: 'about-1', altKey: 'about.images.alt1' },
-  { id: 'about-2', altKey: 'about.images.alt2' },
-];

@@ -295,17 +295,22 @@ const en = {
   },
   about: {
     pageTitle: 'About us',
-    pageSubtitle: 'The family story of a café in the centre of Kutná Hora',
+    pageSubtitle: 'A family café on Barborská in Kutná Hora',
     story: {
       title: 'How it started',
-      p1: 'We opened Turistka as a family — with a wish to create a place where people stop, rest, and feel good. We didn\'t want another quick coffee shop, but a space with soul.',
-      p2: 'The name felt natural: Kutná Hora lives on tourists and locals alike, and we want to be a stop for both. A place for coffee after a walk through the historic centre, or for meeting friends every week.',
-      p3: 'We bake and cook everything ourselves. The menu changes with the seasons, but you\'ll always find something sweet, something savoury, and good coffee.',
+      p1: 'We run Turistka as a family at Barborská 29/22. We wanted a place where you can actually sit down after walking the town — not just grab coffee at the counter.',
+      p2: 'The name is no accident. Kutná Hora lives on tourists and locals alike, and we are a stop for both — a one-off visit or a regular coffee on the same day each week.',
+      p3: 'We bake our own cakes and savoury pastries. The menu shifts with the season and what we manage to get done — but the display case always has something sweet and a proper cup of coffee.',
     },
     atmosphere: {
-      title: 'Atmosphere',
-      p1: 'The interior is simple and bright — wood, natural tones, and plenty of light. Mornings are quiet, afternoons bring guests after trips, and evenings turn the café into a cosy place to sit.',
-      p2: 'We\'re in the centre of Kutná Hora, a short walk from the main sights. An ideal stop on the way between the cathedral and other highlights of the town.',
+      title: 'What it is like here',
+      p1: 'A bright space, wood, natural colours. Mornings are quiet, afternoons bring guests back from sightseeing, and in the evening a few tables stay for a slow sit-down.',
+      p2: 'We are a short walk from the main sights — an easy stop between the cathedral and the rest of the centre, even if you do not know the town.',
+    },
+    quote: {
+      heading: 'What drives us',
+      text: 'We opened the café for people, not for trends. Whether you are a local or a tourist on your first visit — you should feel welcome here.',
+      author: 'The Turistka family',
     },
     images: {
       alt1: 'Family behind the café counter',

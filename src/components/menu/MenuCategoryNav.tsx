@@ -1,27 +1,54 @@
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { menuCategories } from '../../data/menu';
 import type { MenuCategoryId } from '../../types/menu';
 
+/** Subpixel / browser rounding slack when matching anchor scroll position */
+const SCROLL_OFFSET_TOLERANCE = 10;
+
 function getScrollOffset() {
-  const headerHeight = window.matchMedia('(min-width: 640px)').matches ? 80 : 64;
-  return headerHeight + 48;
+  const anchor = document.getElementById(`menu-${menuCategories[0].id}`);
+  if (anchor) {
+    const margin = parseFloat(getComputedStyle(anchor).scrollMarginTop);
+    if (!Number.isNaN(margin) && margin > 0) return margin;
+  }
+
+  // Fallback — must match scroll-mt-* on MenuCategorySection
+  return window.matchMedia('(min-width: 640px)').matches ? 160 : 144;
 }
 
-const linkBaseClass =
-  'inline-block px-2 sm:px-3 py-1.5 text-sm border-b transition-colors whitespace-nowrap';
-const linkActiveClass = 'text-espresso border-stone/60';
-const linkInactiveClass =
-  'text-cocoa/80 border-transparent hover:text-espresso hover:border-stone/60';
+const tabBaseClass =
+  'rounded-full px-4 py-1 text-sm leading-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa/30 whitespace-nowrap';
+
+function centerActiveLink(
+  container: HTMLDivElement,
+  link: HTMLAnchorElement,
+) {
+  if (container.scrollWidth <= container.clientWidth) return;
+
+  const containerRect = container.getBoundingClientRect();
+  const linkRect = link.getBoundingClientRect();
+  const scrollLeft =
+    container.scrollLeft +
+    (linkRect.left - containerRect.left) -
+    containerRect.width / 2 +
+    linkRect.width / 2;
+
+  container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+}
 
 export default function MenuCategoryNav() {
   const { t } = useTranslation();
   const [activeId, setActiveId] = useState<MenuCategoryId>(menuCategories[0].id);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef(new Map<MenuCategoryId, HTMLAnchorElement>());
 
   useEffect(() => {
     const updateActive = () => {
-      const offset = getScrollOffset();
+      setIsScrolled(window.scrollY > 0);
+
+      const offset = getScrollOffset() + SCROLL_OFFSET_TOLERANCE;
       let current = menuCategories[0].id;
 
       for (const category of menuCategories) {
@@ -45,46 +72,44 @@ export default function MenuCategoryNav() {
   }, []);
 
   useEffect(() => {
-    linkRefs.current.get(activeId)?.scrollIntoView({
-      inline: 'nearest',
-      block: 'nearest',
-    });
+    if (!window.matchMedia('(max-width: 639px)').matches) return;
+
+    const container = scrollRef.current;
+    const link = linkRefs.current.get(activeId);
+    if (container && link) centerActiveLink(container, link);
   }, [activeId]);
 
   return (
     <nav
       aria-label={t('menu.nav.label')}
-      className="sticky top-16 sm:top-20 z-40 bg-cream/95 backdrop-blur-sm border-b border-stone/40"
+      className={`sticky top-16 sm:top-20 z-40 bg-sand/90 backdrop-blur-sm border-b border-sage/25 transition-shadow ${isScrolled ? 'shadow-sm' : ''}`}
     >
-      <div className="overflow-x-auto overscroll-x-contain px-5 sm:px-8 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-        <ul className="mx-auto flex w-max items-center py-3">
-          {menuCategories.map((category, index) => {
+      <div
+        ref={scrollRef}
+        className="overflow-x-auto overscroll-x-contain px-5 sm:px-8 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        <ul className="mx-auto flex w-max flex-wrap items-center justify-center gap-1.5 py-4">
+          {menuCategories.map((category) => {
             const isActive = activeId === category.id;
 
             return (
-              <Fragment key={category.id}>
-                {index > 0 && (
-                  <li
-                    className="flex shrink-0 items-center self-center px-2 sm:px-2.5"
-                    aria-hidden="true"
-                  >
-                    <span className="size-0.5 rounded-full bg-stone/70" />
-                  </li>
-                )}
-                <li className="shrink-0">
-                  <a
-                    ref={(el) => {
-                      if (el) linkRefs.current.set(category.id, el);
-                      else linkRefs.current.delete(category.id);
-                    }}
-                    href={`#menu-${category.id}`}
-                    aria-current={isActive ? 'location' : undefined}
-                    className={`${linkBaseClass} ${isActive ? linkActiveClass : linkInactiveClass}`}
-                  >
-                    {t(category.titleKey)}
-                  </a>
-                </li>
-              </Fragment>
+              <li key={category.id} className="shrink-0">
+                <a
+                  ref={(el) => {
+                    if (el) linkRefs.current.set(category.id, el);
+                    else linkRefs.current.delete(category.id);
+                  }}
+                  href={`#menu-${category.id}`}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`${tabBaseClass} ${
+                    isActive
+                      ? 'bg-sage/80 text-cream shadow-sm'
+                      : 'text-sage/70 hover:text-sage hover:bg-sage/8'
+                  }`}
+                >
+                  {t(category.titleKey)}
+                </a>
+              </li>
             );
           })}
         </ul>
