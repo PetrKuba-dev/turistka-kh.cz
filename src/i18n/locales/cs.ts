@@ -233,7 +233,7 @@ const cs = {
           '2 vejce 63° v koprovém jogurtu z farmy Bláto, romesco omáčka, chilli máslo, naše slaná granola a pita chléb',
       },
       lentilBowlWithFalafel: {
-        name: 'Čočkomíška s falafelem',
+        name: 'Čočkomiska s falafelem',
         description:
           'Hummus z dýně, beluga salátek, falafel, naše fermentovaná zelenina, tahini zálivka',
         extras: {
